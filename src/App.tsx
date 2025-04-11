@@ -23,7 +23,7 @@ function App() {
       }}
     >
       <Header />
-      <Box sx={{ flexGrow: 1, padding: '20px' }}>
+      <Box sx={{ flexGrow: 1}}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/function" element={<Function />} />

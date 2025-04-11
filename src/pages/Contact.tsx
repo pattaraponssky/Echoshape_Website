@@ -3,6 +3,8 @@ import React from 'react'
 
 const TextStayle = {
   fontFamily: 'Prompt',
+  fontWeight:'bold',
+  color:"#fff"
 }
 
 // const BoxStyle = {
@@ -18,8 +20,8 @@ const Contact: React.FC = () => {
     <Box sx={{ fontFamily: "Prompt" }}>
 
       <Typography
-        variant="h4"
-        sx={{ fontWeight: "bold", marginBottom: "10px", fontFamily: "Prompt", textAlign: "center", color: "#fff" }}
+        variant="h3"
+        sx={{ fontWeight: "bold", marginTop: "20px", fontFamily: "Prompt", textAlign: "center", color: "#fff" }}
       >
         Contact Us
       </Typography>
@@ -27,7 +29,7 @@ const Contact: React.FC = () => {
       <Box
         sx={{
           fontFamily: "Prompt",
-          maxWidth: "80vw",
+          maxWidth: "70vw",
           minHeight: "60vh",
           margin: "auto",
           backgroundColor: "white",
@@ -43,24 +45,26 @@ const Contact: React.FC = () => {
         <Box
           sx={{
             boxShadow: 3,
-            width: { xs: '100%', md: '40%' },
+            width: { xs: '100%', md: '45%' },
             maxHeight: '100%',
             padding: "20px",
             borderRadius: "10px",
+            // backgroundColor: "#f5f5",
+            backgroundImage: "url('./images/contact.png')",
+            margin: "20px",
           }}
         >
-          <Typography variant="h6" sx={{ ...TextStayle, mb: 1 }}>บริษัท Ecoshape</Typography>
-          <Typography variant="body1" sx={{ ...TextStayle }}>123 ถนนสุขุมวิท, เขตบางนา, กรุงเทพฯ 10260</Typography>
-          <Typography variant="body1" sx={{ ...TextStayle, mt: 2 }}>อีเมล: contact@ecos.com</Typography>
-          <Typography variant="body1" sx={{ ...TextStayle }}>โทร: 02-123-4567</Typography>
-          <Typography variant="body1" sx={{ ...TextStayle }}>Line: @ecos</Typography>
+          <Typography variant="h4" sx={{ ...TextStayle}}>Contact Information</Typography>
+          <Typography variant="h6" sx={{ ...TextStayle}}>Say something to start a live chat!</Typography>
+          <Typography variant="h6" sx={{ ...TextStayle, mt: 5 }}>demo@gmail.com</Typography>
+          <Typography variant="h6" sx={{ ...TextStayle, mt: 1 }}>+66 80 176 9409</Typography>
+          <Typography variant="h6" sx={{ ...TextStayle, mt: 1 }}>Bangkok University</Typography>
         </Box>
 
         {/* ฝั่งขวา */}
         <Box
           sx={{
-
-            width: { xs: '100%', md: '60%' },
+            width: { xs: '100%', md: '55%' },
             padding: 5,
             display: 'flex',
             flexDirection: 'column',
@@ -69,7 +73,7 @@ const Contact: React.FC = () => {
         >
           {/* แบ่งเป็น 2 คอลัมน์ */}
           <Box sx={{ display: 'flex', gap: 2 }}>
-            <Box sx={{  width: { xs: '100%', md: '60%' } }}>
+            <Box sx={{  width: { xs: '100%', md: '50%' } }}>
               <TextField
                 label="First Name"
                 variant="standard"
@@ -77,7 +81,7 @@ const Contact: React.FC = () => {
                 fullWidth
               />
             </Box>
-            <Box sx={{  width: { xs: '100%', md: '60%' } }}>
+            <Box sx={{  width: { xs: '100%', md: '50%' } }}>
               <TextField
                 label="Last Name"
                 variant="standard"
@@ -86,24 +90,25 @@ const Contact: React.FC = () => {
               />
             </Box>
           </Box>
-          
-
           <Box sx={{ display: 'flex', gap: 2 }}>
-            
-          <TextField
-            label="Email"
-            type="email"
-            variant="standard"
-            placeholder="Please enter your email"
-            fullWidth
-            />
-          <TextField
-            label="Phone Number"
-            type="tel"
-            variant="standard"
-            placeholder="Please enter your phone number"
-            fullWidth
-            />
+              <Box sx={{  width: { xs: '100%', md: '50%' } }}>
+                <TextField
+                  label="Email"
+                  type="email"
+                  variant="standard"
+                  placeholder="Please enter your email"
+                  fullWidth
+                />
+              </Box>
+              <Box sx={{  width: { xs: '100%', md: '50%' } }}>
+                <TextField
+                  label="Phone Number"
+                  type="tel"
+                  variant="standard"
+                  placeholder="Please enter your phone number"
+                  fullWidth
+                  />
+              </Box>
             </Box>
           <TextField
             label="Message"
@@ -116,10 +121,10 @@ const Contact: React.FC = () => {
           />
           <Button
             variant="contained"
-            color="primary"
-            sx={{ alignSelf: 'flex-start', mt: 2 }}
+            sx={{ alignSelf: 'flex-end', mt: 2 ,backgroundColor:"black",
+              fontWeight:'bold',borderRadius:'5px',color:"#fff",}}
           >
-            ส่งข้อความ
+            Send Message
           </Button>
         </Box>
 

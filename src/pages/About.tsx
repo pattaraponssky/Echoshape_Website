@@ -1,34 +1,78 @@
-import { Box, Card, CardContent, Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import React from 'react'
 
 const About: React.FC = () => {
   return (
-    <Box sx={{ padding: "20px", maxWidth: "100%", margin: "auto", backgroundColor: "white", borderRadius: "10px", boxShadow: 3 }}>
-    <Typography variant="h4" sx={{ fontWeight: "bold", marginBottom: "20px", fontFamily: "Prompt" }}>
-      เกี่ยวกับเรา
-    </Typography>
-    <Typography variant="body1" sx={{ marginBottom: "20px", fontFamily: "Prompt" }}>
-      เว็บไซต์นี้ถูกพัฒนาขึ้นเพื่อช่วยให้คุณสามารถติดตามสถานการณ์น้ำและการบริหารจัดการน้ำได้อย่างมีประสิทธิภาพ  
-      เรารวบรวมข้อมูลจากแหล่งที่เชื่อถือได้ เพื่อให้คุณได้รับข้อมูลที่ถูกต้องและอัปเดตอยู่เสมอ  
-    </Typography>
+    <Box sx={{ paddingInline: '11vw', width: '78vw' }}>
+      <Box sx={{ position: 'relative', display: 'inline-block' }}>
+        {/* ข้อความหลัก */}
+        <Typography
+          sx={{
+            marginTop: '15px',
+            textAlign: 'left',
+            color: '#757575',
+            fontSize: '7vw',
+            fontFamily: 'Bebas Neue',
+            lineHeight: 1,
+          }}
+        >
+          LET YOUR VOICE PAINT THE UNSEEN
+        </Typography>
 
-    <Card sx={{ backgroundColor: "#f5f5f5", borderRadius: "10px", boxShadow: 2 }}>
-      <CardContent>
-        <Typography variant="h5" sx={{ fontWeight: "bold", marginBottom: "10px", fontFamily: "Prompt" }}>
-          ช่องทางติดต่อ
+        {/* เงาสะท้อน */}
+        <Typography
+          sx={{
+            textAlign: 'left',
+            color: '#333',
+            fontSize: '7vw',
+            fontFamily: 'Bebas Neue',
+            lineHeight: 1,
+            transform: 'scaleY(-1)',
+            opacity: 1,
+            position: 'absolute',
+            top: '100%',
+            left: 0,
+            width: '100%',
+            WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.5), transparent)',
+            maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.5), transparent)',
+          }}
+        >
+          LET YOUR VOICE PAINT THE UNSEEN
         </Typography>
-        <Typography variant="body2" sx={{ fontFamily: "Prompt" }}>
-          📍 811 ถ.สามเสน แขวงถนนนครไชยศรี เขตดุสิต กรุงเทพมหานคร 10300
+      </Box>
+      <Typography
+          sx={{
+            textAlign: 'left',
+            color: '#fff',
+            fontSize: '3rem',
+            fontFamily: 'Prompt',
+            fontWeight: 'bold',
+         
+          }}
+        >
+          About Us
         </Typography>
-        <Typography variant="body2" sx={{ fontFamily: "Prompt" }}>
-          📞 เบอร์ติดต่อ: 02-241-0020 ถึง 29
-        </Typography>
-        <Typography variant="body2" sx={{ fontFamily: "Prompt" }}>
-          🌐  www.rid.go.th
-        </Typography>
-      </CardContent>
-    </Card>
-  </Box>
+      <Box>
+              <Typography sx={{ textAlign: "left", marginTop: 2, fontSize:"1.5rem" , color:"#fff", fontFamily: 'Prompt' }}>
+              At Echoshape, we believe in the power of sound and data to create transformative digital experiences. <br />
+              Our passion lies in reshaping how audio is understood and interacted with,<br />
+              pushing the boundaries of technology to craft the most innovative and intuitive digital products.<br />
+              we’re on a mission to design the world we’ve always envisioned — <br />
+              where sound and technology converge in ways never seen before. <br /><br />
+              — The Echoshape Team
+              </Typography>
+      </Box>
+      <br /><br />
+      <Box>
+              <Typography sx={{ textAlign: "left", marginTop: 2, fontSize:"1.5rem" , color:"#fff", fontFamily: 'Prompt' }}>
+              ที่ Echoshape เราเชื่อในพลังของเสียงและข้อมูลในการสร้างประสบการณ์ดิจิทัลที่เปลี่ยนแปลง <br />
+              ความหลงใหลของเราคือการเปลี่ยนแปลงวิธีที่เสียงถูกเข้าใจและมีปฏิสัมพันธ์กับมัน <br />
+              เราผลักดันขีดจำกัดของเทคโนโลยีเพื่อสร้างผลิตภัณฑ์ดิจิทัลที่เป็นนวัตกรรมและเข้าใจง่ายที่สุด <br />
+              เป้าหมายของเราคือการออกแบบโลกที่เราเคยฝันไว้ — ที่ซึ่งเสียงและเทคโนโลยีมาบรรจบกันในวิธีที่ไม่เคยเห็นมาก่อน <br /><br />
+              — ทีมงาน Echoshape
+              </Typography>
+      </Box>
+    </Box>
   )
 }
 
