@@ -57,15 +57,6 @@ const Header: React.FC = () => {
             <Typography sx={TextStyle}>Function</Typography>
           </NavLink>
           <NavLink
-            to="/contact"
-            style={({ isActive }) => ({
-              ...linkStyle,
-              ...(isActive ? activeStyle : {})
-            })}
-          >
-            <Typography sx={TextStyle}>Contact</Typography>
-          </NavLink>
-          <NavLink
             to="/about"
             style={({ isActive }) => ({
               ...linkStyle,

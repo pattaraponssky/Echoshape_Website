@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Home from './pages/Home'
 import Function from './pages/Function'
-import Contact from './pages/Contact'
 import About from './pages/About'
 import { Box } from '@mui/material'
 
@@ -27,7 +26,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/function" element={<Function />} />
-          <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </Box>

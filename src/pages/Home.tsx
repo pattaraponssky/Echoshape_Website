@@ -1,6 +1,7 @@
-import { Box, Button, Typography, Grid } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
 import ImageComponent from '../components/Images'
+import { NavLink } from 'react-router-dom'
 
 const Home: React.FC = () => {
   return (
@@ -18,60 +19,64 @@ const Home: React.FC = () => {
         experiences from your recoroings.<br />
         </Typography>
       </Box>
+      <NavLink to="/function">
+        <Button
+          sx={{
+            background: "linear-gradient(135deg,#003E87,#870049)",
+            boxShadow: 5,
+            cursor: "pointer",
+            width: "200px",
+            height: "50px",
+            margin: "10px",
+            marginTop: 2,
+            color: "white",
+            fontFamily: "Prompt",
+            fontWeight: "bold",
+            borderRadius: "25px",
+            "&:hover": {
+              background: "linear-gradient(135deg,#003E87,rgb(3, 29, 54))",
+            },
+          }}
+          variant="contained"
+        >
+          <Typography variant="h6" sx={{ fontFamily: "Prompt", fontWeight: "bold" }}>
+            Get Started
+          </Typography>
+        </Button>
+      </NavLink>
 
-      <Button
-        sx={{
-          background: "linear-gradient(135deg,rgb(27, 148, 248), #1976d2)",
-          boxShadow: 5,
-          cursor: "pointer",
-          width: "200px",
-          height: "50px",
-          margin: "10px",
-          marginTop: 2,
-          color: "white",
-          fontFamily: "Prompt",
-          fontWeight: "bold",
-          borderRadius: "25px",
-          "&:hover": {
-            background: "linear-gradient(135deg,rgb(27, 148, 248),rgb(3, 29, 54))",
-          },
-        }}
-        variant="contained"
-      >
-        <Typography variant="h6" sx={{ fontFamily: "Prompt", fontWeight: "bold" }}>
-          Get Started
-        </Typography>
-      </Button>
-
-      <Button
-        sx={{
-          boxShadow: 5, // เพิ่มให้เหมือนปุ่มแรก
-          cursor: "pointer",
-          width: "250px",
-          height: "50px",
-          margin: "10px",
-          marginTop: 2,
-          backgroundColor: "rgba(0,0,0,0)",
-          color: "white",
-          fontFamily: "Prompt",
-          fontWeight: "bold",
-          borderRadius: "25px", // เพิ่มให้เหมือนปุ่มแรก
-          border: "1px solid white",
-          "&:hover": {
-            background: "linear-gradient(135deg,rgb(87, 87, 87),rgb(86, 96, 107))",
-          },
-        }}
-        variant="contained"
-      >
-        <Typography variant="h6" sx={{ fontFamily: "Prompt", fontWeight: "bold" }}>
-          Learn More About
-        </Typography>
-      </Button>
+      <NavLink to="/about">
+        <Button
+          sx={{
+            boxShadow: 5, // เพิ่มให้เหมือนปุ่มแรก
+            cursor: "pointer",
+            width: "250px",
+            height: "50px",
+            margin: "10px",
+            marginTop: 2,
+            backgroundColor: "rgba(0,0,0,0)",
+            color: "white",
+            fontFamily: "Prompt",
+            fontWeight: "bold",
+            borderRadius: "25px", // เพิ่มให้เหมือนปุ่มแรก
+            border: "1px solid white",
+            "&:hover": {
+              background: "linear-gradient(135deg,rgb(27, 148, 248),#870049)",
+            },
+          }}
+          variant="contained"
+        >
+        
+          <Typography variant="h6" sx={{ fontFamily: "Prompt", fontWeight: "bold" }}>
+            Learn More About
+          </Typography>
+        
+        </Button>
+      </NavLink>
 
 
-
-        <Grid container spacing={4} sx={{alignItems: "center", justifyContent: "center"}}>
-          <Box>
+      <Box sx={{display: "flex", gap: 2, flexDirection: { xs: 'column', md: 'row' }}}>
+          <Box >
             <ImageComponent height={'auto'} width={'100%'} src="./images/image1.png" alt="Image 1" title={''} />
           </Box>
           <Box>
@@ -83,7 +88,7 @@ const Home: React.FC = () => {
           <Box>
             <ImageComponent height={'auto'} width={'100%'} src="./images/image4.png" alt="Image 4" title={''} />
           </Box>
-        </Grid>
+        </Box>
     </Box>
 </Box>
   )
