@@ -1,8 +1,13 @@
 import { Box, Typography, Button, Paper } from '@mui/material'
 import React, { useState } from 'react'
 
-const AudioUpload: React.FC = () => {
+type Props = {
+  onResult: (data: unknown) => void
+}
+
+const AudioUpload: React.FC<Props> = ({ onResult }) => {
   const [audioSrc, setAudioSrc] = useState<string | null>(null)
+  const [liveScript, setLiveScript] = useState<string>('')
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
@@ -11,6 +16,39 @@ const AudioUpload: React.FC = () => {
       setAudioSrc(url)
     }
   }
+
+  const handleUpload = async () => {
+    const fileInput = document.querySelector('input[type="file"]') as HTMLInputElement;
+    if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
+      alert('Please select a file first.');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', fileInput.files[0]);
+    formData.append('transcript', '');
+
+    try {
+      const response = await fetch('http://localhost:5000/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+      console.log('Response:', data);
+
+      if (response.ok) {
+        alert('Upload Success!');
+        onResult(data); // 🔥 ส่งผลลัพธ์กลับไปยัง Function
+        setLiveScript(data.transcript);  // Update live script with transcript from response
+      } else {
+        alert(`Upload failed: ${data.error}`);
+      }
+    } catch (error) {
+      console.error('Error uploading file:', error);
+      alert('Upload failed: network or server error.');
+    }
+  };
 
   const ButtonStyle = {
     boxShadow: 3,
@@ -64,10 +102,9 @@ const AudioUpload: React.FC = () => {
           Upload & Play Audio
         </Typography>
 
-        {/* ปุ่ม Upload + ปุ่มใหม่ */}
         <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
           <Button variant="contained" component="label" sx={ButtonStyle}>
-          📁 Upload Audio File
+            📁 Upload Audio File
             <input
               type="file"
               accept="audio/*"
@@ -81,21 +118,17 @@ const AudioUpload: React.FC = () => {
               variant="contained"
               sx={{
                 ...ButtonStyle,
-                background: 'linear-gradient(135deg,#540b0e,#9e2a2b)',
+                background: 'linear-gradient(135deg,#00c853,#00e5ff)',
                 '&:hover': {
-                  background: 'linear-gradient(135deg,#9e2a2b,#540b0e)',
-                },
+                  background: 'linear-gradient(135deg,#00bfa5,#64dd17)',
+                }
               }}
-              onClick={() => {
-                console.log('You clicked the extra button!')
-                // ใส่ logic เพิ่มได้ตามต้องการ
-              }}
+              onClick={handleUpload}
             >
-              ดำเนินการต่อ
+              🎵Analysis File
             </Button>
           )}
         </Box>
-
 
         {audioSrc && (
           <Box sx={{ marginTop: 4 }}>
@@ -109,21 +142,39 @@ const AudioUpload: React.FC = () => {
           </Box>
         )}
       </Paper>
-      
-      <Box sx={{backgroundColor:'rgb(255,255,255,0.8)',width:"100%",mt: 2,borderRadius:4,
-          padding: 2,
-          textAlign: 'start',
-          backdropFilter: 'blur(10px)',}}>
-          <Typography variant="h6" sx={{ fontFamily: 'Prompt'}}>
-            Test TexT Test TexT Test TexT Test TexT Test TexT Test TexT Test<br/>
-            Test TexT Test TexT Test TexT<br/>
-            Test TexT Test TexT Test TexT<br/>
-            Test TexT Test TexT Test TexT<br/>
-            Test TexT Test TexT Test TexT<br/>
-          </Typography>
+
+      <Box sx={{
+        backgroundColor: 'rgb(255,255,255,0.8)',
+        width: "100%",
+        mt: 2,
+        borderRadius: 4,
+        padding: 2,
+        textAlign: 'start',
+        backdropFilter: 'blur(10px)',
+      }}>
+        <Typography
+          sx={{
+            fontSize: "1.5rem",
+            fontWeight: 'bold',
+            color: '#000',
+            fontFamily: 'Prompt',
+            textAlign: 'start',
+          }}
+        >
+          Live Script
+        </Typography>
+        <Typography variant="h6" sx={{
+          fontFamily: 'Prompt',
+          height: '200px',
+          width: '100%',
+          overflowY: 'auto',
+          whiteSpace: 'pre-wrap',
+          wordBreak: 'break-word',
+        }}>
+          {liveScript || 'No transcript available yet.'}
+        </Typography>
       </Box>
     </Box>
-    
   )
 }
 

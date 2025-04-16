@@ -13,16 +13,15 @@ function App() {
       minHeight="100vh"
       minWidth="100vw"
       sx={{
-        backgroundImage: 'url(/images/bg.png)', // หรือจะใส่ลิงก์ตรงๆ ก็ได้
+        backgroundImage: 'url(./images/bg.png)', // หรือจะใส่ลิงก์ตรงๆ ก็ได้
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         color: '#333', // ตั้งสีตัวอักษรให้เหมาะกับพื้นหลัง
-        // ตั้งฟอนต์ให้เหมาะกับพื้นหลัง
       }}
     >
       <Header />
-      <Box sx={{ flexGrow: 1}}>
+      <Box sx={{ flexGrow: 1 }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/function" element={<Function />} />
